@@ -1,0 +1,215 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-color:#3B4664;
+
+    --equal-button-bg-color: #D13F30;
+    --reset-del-button-bg-color: #647299;
+    --normal-button-bg-color: #EAE3DB;
+    
+    --normal-button-shadow-color: #B2A296;
+    --reset-del-button-shadow-color: #424E75;
+    --equal-button-shadow-color: #902316;
+
+    --text-color: #fff;
+    --button-text-color: #424E75;
+    --del-equal-reset-button-text-color:#fff;
+
+    --keyboard-theme-switcher-bg-color: #252D44;
+
+    --input-screen-bg-color: #181F32; 
+}
+
+[data-theme="light"] {
+    --bg-color: hsl(0, 0%, 90%);
+    
+    --equal-button-bg-color: hsl(205, 86%, 40%);
+    --reset-del-button-bg-color: hsl(360, 82%, 45%);
+    --normal-button-bg-color: hsl(45, 5%, 95%);
+    
+    --normal-button-shadow-color: hsl(35, 11%, 61%);
+    --reset-del-button-shadow-color: hsl(360, 82%, 25%);
+    --equal-button-shadow-color: hsl(205, 86%, 27%);
+    
+    --text-color: hsl(220, 10%, 19%);
+    --button-text-color: hsl(60, 10%, 19%);
+    --del-equal-reset-button-text-color: #fff;
+    
+    --keyboard-theme-switcher-bg-color: hsl(0, 5%, 81%);
+    
+    --input-screen-bg-color: hsl(0, 0%, 93%);
+}
+
+[data-theme="dark"] {
+    --bg-color: hsl(240, 20%, 10%);
+    
+    --normal-button-bg-color: hsl(220, 25%, 15%);
+    --reset-del-button-bg-color: hsl(330, 60%, 10%); /* Updated reset and delete button color */
+    --equal-button-bg-color: hsl(30, 90%, 40%);
+    
+    --normal-button-shadow-color: hsl(220, 20%, 5%);
+    --reset-del-button-shadow-color: hsl(0, 0%, 2%);
+    --equal-button-shadow-color: hsl(176, 92%, 50%);
+    
+    --text-color: hsl(0, 0%, 90%);
+    --button-text-color: hsl(0, 0%, 90%);
+    --del-equal-reset-button-text-color: #fff;
+    
+    --keyboard-theme-switcher-bg-color: hsl(0, 0%, 5%);
+    
+    --input-screen-bg-color: hsl(220, 20%, 15%);
+}
+
+body{
+    background: var(--bg-color);
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+/* Calculator container */
+.calculator{
+    width: min(100%, 360px);
+    padding: 25px;
+    margin: 0 auto;
+}
+/* Calculator header */
+.calculator__header{
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: var(--text-color);
+}
+.calculator__header-text{
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+/* Theme switcher */
+.calculator__header .theme-style{
+    display: flex;
+    align-items: flex-end;
+}
+.calculator__header .theme-style .theme-style__text{
+    color: var(--text-color);
+    text-transform: uppercase;
+    margin-right: 18px;
+    font-size: 12px;
+}
+.calculator__header .theme-style .theme-style__switcher{
+    height: 2.5rem;
+    width: 5rem;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.theme-style__switcher .theme-style__switcher-box{
+    width: 100%;
+    height: 1.4rem;
+    background: var(--keyboard-theme-switcher-bg-color);
+    border-radius: 160px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 0 auto;
+}
+.theme-style__switcher .theme-style__theme{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-color);
+    position: relative;
+    cursor: pointer;
+    width: 4rem;
+    height: 100%;
+    font-weight: 600;
+}
+.theme-style__switcher .theme-style__theme input{
+    display: none;
+}
+
+.theme-style__switcher .theme-style__theme .theme-style__selector{
+    width: .8rem;
+    height: .8rem;
+    background: var(--equal-button-bg-color);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px;
+    display: none;          /* Hide all selector */
+}
+.theme-style__theme input:checked + .theme-style__selector{
+    display: inline-block;
+}
+
+/* Calculator result screen */
+.calculator__result-input-screen{
+    width: 100%;
+    margin-top: 20px;
+    background: var(--input-screen-bg-color);
+    border-radius: 10px;
+    color: var(--text-color);
+    padding: 25px 25px;
+    text-align: right;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* Calculator keyboard */
+.calculator__keyboard{
+    margin-top: 32px;
+    padding: 24px;
+    background: var(--keyboard-theme-switcher-bg-color);
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.calculator__keyboard-button{
+    position: relative;
+    top: 0px;
+    font-weight: 600;
+    font-size: 1.5rem;
+    min-height: 2.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+    background: var(--normal-button-bg-color);
+    color: var(--button-text-color);
+    box-shadow: inset 0 -2px 0 var(--normal-button-shadow-color);
+}
+/* for reset and qual button */
+.calculator__button-span{
+    grid-column: span 2;
+}
+.calculator__button-reset, .calculator__button-delete{
+    background: var(--reset-del-button-bg-color);
+    color: var(--del-equal-reset-button-text-color);
+    box-shadow: inset 0 -2px 0 var(--reset-del-button-shadow-color);
+    text-transform: uppercase;
+    font-size: .8rem;
+}
+.calculator__button-equal{
+    background: var(--equal-button-bg-color);
+    color: var(--del-equal-reset-button-text-color);
+    box-shadow: inset 0 -2px 0 var(--equal-button-shadow-color);
+    font-size: .8rem;
+}
+
+/* for button clicking event */
+.calculator__keyboard-button:active {
+    box-shadow: none;
+    top: 1px;
+}

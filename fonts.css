@@ -1,0 +1,10 @@
+@font-face {
+    font-family:"Poppins";
+    src: url('./assets/Fonts/Poppins-Regular.woff') format('woff');
+    font-weight: 400;
+}
+@font-face {
+    font-family: "Poppins";
+    src: url("./assets/Fonts/Poppins-SemiBold.woff") format("woff");
+    font-weight: 600;
+}

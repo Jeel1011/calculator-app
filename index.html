@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <title>Calculator App</title>
+  <!-- csS file link-->
+  <link rel="stylesheet" href="./style.css">
+	<!-- Fonts css file -->
+  <link rel="stylesheet" href="./fonts.css">
+<body>
+	<!-- Calculator container -->
+	<main class="calculator">
+		<!-- Calculator header -->
+		<header class="calculator__header">
+			<h2 class="calculator__header-text">calc</h2>
+			<!-- Theme switcher -->
+			<div class="theme-style">
+				<span class="theme-style__text">theme</span>
+				<div class="theme-style__switcher">
+					<div class="theme-style__switcher-box"></div>
+					<!-- Default theme -->
+					<label class="theme-style__theme theme-style__theme--default" for="default" >
+						<small>1</small>
+						<input type="radio" name="theme" id="default" data-theme="default" value="default" checked/>
+						<span class="theme-style__selector" ></span>
+					</label>
+					<!-- Light theme -->
+					<label class="theme-style__theme theme-style__theme--light" for="light">
+						<small>2</small>
+						<input type="radio" name="theme" id="light" data-theme="light" value="light"/>
+						<span class="theme-style__selector" ></span>
+					</label>
+					<!-- Dark theme -->
+					<label class="theme-style__theme theme-style__theme--dark" for="dark">
+						<small>3</small>
+						<input type="radio" name="theme" id="dark" data-theme="dark" value="dark"/>
+						<span class="theme-style__selector" ></span>
+					</label>
+				</div>
+			</div>
+		</header>
+		<!-- Calculator result screen -->
+		<section class="calculator__result-screen">
+			<input class="calculator__result-input-screen" type="text" name="screen" id="screen" readonly>
+		</section>
+		<!-- Calculator keyboard -->
+		<section class="calculator__keyboard">
+		<button class="calculator__keyboard-button calculator__button-number" data-key="7">7</button>
+		<button class="calculator__keyboard-button calculator__button-number" data-key="8">8</button>
+		<button class="calculator__keyboard-button calculator__button-number" data-key="9">9</button>
+		<button class="calculator__keyboard-button calculator__button-delete" data-key="delete">Del</button>
+		<button class="calculator__keyboard-button calculator__button-number" data-key="4">4</button>
+		<button class="calculator__keyboard-button calculator__button-number" data-key="5">5</button>
+		<button class="calculator__keyboard-button calculator__button-number" data-key="6">6</button>
+		<button class="calculator__keyboard-button calculator__button-operator" data-key="addition" data-symbol="+">+</button>
+		<button class="calculator__keyboard-button calculator__button-number" data-key="1">1</button>
+		<button class="calculator__keyboard-button calculator__button-number" data-key="2">2</button>
+		<button class="calculator__keyboard-button calculator__button-number" data-key="3">3</button>
+		<button class="calculator__keyboard-button calculator__button-operator" data-key="subtraction" data-symbol="-">-</button>
+		<button class="calculator__keyboard-button calculator__button-decimal" data-key="decimal">.</button>
+		<button class="calculator__keyboard-button calculator__button-number" data-key="0">0</button>
+		<button class="calculator__keyboard-button calculator__button-operator" data-key="division" data-symbol="∕">∕</button>
+		<button class="calculator__keyboard-button calculator__button-operator" data-key="multiplication" data-symbol="*">×</button>
+		<button class="calculator__keyboard-button calculator__button-reset calculator__button-span" data-key="reset">Reset</button>
+		<button class="calculator__keyboard-button calculator__button-equal calculator__button-span" data-key="equal">=</button>
+		</section>
+	</main>
+	<script src="./JavaScript/script.js"></script>
+</body>
+</html>
